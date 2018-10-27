@@ -6,9 +6,11 @@ from requests.exceptions import RequestException
 import re
 import time
 
+print("若爬取单页，请将两个页码输入为同一个数")
 district_id = input("请输入区号：")
 spe_id = input("请输入帖子id：")
-page = input("请输入总页数：")
+ini_page = input("请输入爬取开始页码：")
+fin_page = input("请输入爬取结束页码：")
 file_name = input("保存文件名（名字末尾加上“.csv”）：")
 
 # 写入fieldnames
@@ -78,6 +80,6 @@ def main(page_now):
 
 # 执行函数,遍历所有页
 if __name__ == '__main__':
-    for i in range(int(page)):
+    for i in range(int(ini_page) - 1, int(fin_page)):
         main(page_now=i)
         time.sleep(1)
